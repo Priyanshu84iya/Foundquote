@@ -1,0 +1,172 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --gradient-color1: rgba(255, 209, 255, 0.95);
+    --gradient-color2: rgba(250, 208, 196, 0.95);
+}
+
+body {
+    background-color: #eef0f1;
+    color: hsla(0, 0%, 9%, 0.9);
+}
+
+#content {
+    display: flex;
+    height: calc(100vh - 40px); /* Adjust height to leave space for footer */
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+    z-index: 3;
+    flex-shrink: 0;
+    margin-bottom: 20px; /* Add margin at the bottom to prevent content overlap with footer */
+}
+
+main {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    perspective: 100px;
+}
+
+main::before {
+    content: "";
+    position: fixed;
+    bottom: -50vh;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(150vh, 1440px);
+    height: min(100vh, 1440px);
+    background: radial-gradient(circle,
+            var(--gradient-color1) 0%,
+            var(--gradient-color2) 60%,
+            transparent 100%);
+    border-radius: 50%;
+    filter: blur(132px);
+    z-index: -1;
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.6s ease-in-out;
+}
+
+main.fade-out::before {
+    opacity: 0;
+}
+
+.authorbook,
+.fade-out .authorbook {
+    opacity: 1;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.fade-out .authorbook {
+    opacity: 0;
+}
+
+.details {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.quote h1 {
+    font-family: "Nanum Myeongjo", serif;
+    font-weight: 400;
+    font-size: 3.5rem;
+    line-height: 120%;
+    max-width: 93%;
+}
+
+.authorbook,
+.instruction {
+    font-family: "Chivo Mono", serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.authorbook {
+    font-size: 1rem;
+}
+
+.instruction {
+    font-size: 0.8rem;
+    opacity: 0.6;
+}
+
+.instruction span {
+    background-color: rgb(199, 199, 199);
+    padding: 4px;
+    border-radius: 4px;
+}
+
+a {
+    text-decoration: underline;
+    color: inherit;
+    opacity: 0.65;
+}
+
+/* License Footer Styles */
+#license {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+    padding: 8px 20px;
+    text-align: center;
+    font-family: "Chivo Mono", serif;
+    font-size: 0.7rem;
+    font-weight: 300;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    transform: translateY(100%);  /* Hide footer by default */
+    transition: transform 0.3s ease;
+}
+
+/* Show footer when hovering near bottom of page */
+main:hover #license {
+    transform: translateY(0);
+}
+
+#license p {
+    margin: 5px 0;
+    opacity: 0.8;
+}
+
+#contact-link {
+    text-decoration: underline;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+#contact-link:hover {
+    opacity: 1;
+}
+
+/* Media query */
+@media (max-width: 767px) {
+    .quote h1 {
+        font-size: 2rem;
+    }
+    
+    #license {
+        font-size: 0.7rem;
+        padding: 8px 10px;
+    }
+    
+    #license p:last-child {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .quote h1 {
+        font-size: 2.5rem;
+    }
+  }
