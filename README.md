@@ -8,7 +8,7 @@
 
 Found Quotes is a beautiful, minimalist web application that displays inspiring anime quotes with elegant animations and dynamic gradient backgrounds. Each quote is presented with its author and source, offering a moment of reflection and inspiration with each visit.
 
-![Found Quotes Screenshot](https://postimg.cc/CBFJWf4s)
+[![screenshot-foundquote.png](https://i.postimg.cc/vBnjxrgk/screenshot-foundquote.png)](https://postimg.cc/CBFJWf4s)
 
 ## ✨ Features
 
