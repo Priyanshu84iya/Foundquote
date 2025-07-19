@@ -395,8 +395,14 @@ main:hover #license {
 @media (max-height: 500px) and (orientation: landscape) {
     #content {
         padding: 10px 20px;
-        height: calc(100vh - 40px);
+        height: calc(100vh - 50px); /* Adjusted for landscape */
         justify-content: center;
+        margin-bottom: 15px;
+    }
+    
+    .details {
+        margin-top: 10px;
+        padding-bottom: 10px;
     }
     
     .quote {
@@ -406,10 +412,6 @@ main:hover #license {
     .quote h1 {
         font-size: 1.6rem;
         line-height: 110%;
-    }
-    
-    .details {
-        margin-top: 10px;
     }
     
     .authorbook {
