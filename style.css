@@ -242,7 +242,12 @@ main:hover #license {
 @media (max-width: 479px) {
     #content {
         padding: 15px;
-        height: calc(100vh - 60px);
+        height: calc(100vh - 80px); /* Increased to prevent overlap */
+        margin-bottom: 20px;
+    }
+    
+    .details {
+        padding-bottom: 15px;
     }
     
     .quote h1 {
