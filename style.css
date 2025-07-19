@@ -80,6 +80,13 @@ main.fade-out::before {
     font-size: 3.5rem;
     line-height: 120%;
     max-width: 93%;
+    /* Better text rendering */
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Prevent text from being too wide on mobile */
+    word-wrap: break-word;
+    hyphens: auto;
 }
 
 .authorbook,
