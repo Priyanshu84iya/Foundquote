@@ -24,6 +24,9 @@ body {
     z-index: 3;
     flex-shrink: 0;
     margin-bottom: 20px; /* Add margin at the bottom to prevent content overlap with footer */
+    /* Ensure content doesn't overflow */
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 main {
