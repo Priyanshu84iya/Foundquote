@@ -204,7 +204,7 @@ a {
     width: 100%;
     background-color: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(5px);
-    padding: 8px 20px;
+    padding: 6px 20px;
     text-align: center;
     font-family: "Chivo Mono", serif;
     font-size: 0.7rem;
@@ -221,7 +221,7 @@ main:hover #license {
 }
 
 #license p {
-    margin: 5px 0;
+    margin: 3px 0;
     opacity: 0.8;
 }
 
@@ -273,7 +273,7 @@ main:hover #license {
     
     #license {
         font-size: 0.6rem;
-        padding: 10px 8px;
+        padding: 8px 8px;
         transform: translateY(0); /* Always show on mobile */
         position: relative;
         background-color: rgba(255, 255, 255, 0.9);
@@ -316,7 +316,7 @@ main:hover #license {
     
     #license {
         font-size: 0.65rem;
-        padding: 8px 15px;
+        padding: 6px 15px;
         transform: translateY(0); /* Always show on mobile */
         position: relative;
         background-color: rgba(255, 255, 255, 0.9);
@@ -357,7 +357,7 @@ main:hover #license {
     
     #license {
         font-size: 0.7rem;
-        padding: 10px 25px;
+        padding: 8px 25px;
     }
 }
 
@@ -414,7 +414,7 @@ main:hover #license {
     }
     
     #license {
-        padding: 5px 15px;
+        padding: 4px 15px;
         font-size: 0.6rem;
         transform: translateY(0);
         position: relative;
