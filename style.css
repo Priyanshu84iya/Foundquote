@@ -108,6 +108,45 @@ a {
     text-decoration: underline;
     color: inherit;
     opacity: 0.65;
+    /* Better touch targets for mobile */
+    min-height: 44px;
+    display: inline-block;
+    padding: 2px 0;
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    a {
+        min-height: 48px;
+        padding: 4px 0;
+    }
+    
+    .instruction {
+        opacity: 0.8;
+    }
+    
+    .instruction span {
+        padding: 6px 8px;
+        font-size: 0.85rem;
+    }
+    
+    /* Always show footer on touch devices */
+    #license {
+        transform: translateY(0) !important;
+        position: relative !important;
+        background-color: rgba(255, 255, 255, 0.95) !important;
+    }
+}
+
+/* Hover states for non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+    a:hover {
+        opacity: 0.9;
+    }
+    
+    .instruction span:hover {
+        background-color: rgb(180, 180, 180);
+    }
 }
 
 /* License Footer Styles */
@@ -149,15 +188,48 @@ main:hover #license {
     opacity: 1;
 }
 
-/* Media query */
-@media (max-width: 767px) {
+/* Responsive Media Queries */
+
+/* Small Mobile Devices (portrait) */
+@media (max-width: 479px) {
+    #content {
+        padding: 15px;
+        height: calc(100vh - 60px);
+    }
+    
     .quote h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
+        line-height: 115%;
+        max-width: 100%;
+    }
+    
+    .details {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .authorbook {
+        font-size: 0.9rem;
+    }
+    
+    .instruction {
+        font-size: 0.75rem;
+        align-self: flex-end;
+    }
+    
+    main::before {
+        width: 120vh;
+        height: 80vh;
+        bottom: -40vh;
     }
     
     #license {
-        font-size: 0.7rem;
-        padding: 8px 10px;
+        font-size: 0.6rem;
+        padding: 10px 8px;
+        transform: translateY(0); /* Always show on mobile */
+        position: relative;
+        background-color: rgba(255, 255, 255, 0.9);
     }
     
     #license p:last-child {
@@ -165,8 +237,207 @@ main:hover #license {
     }
 }
 
+/* Large Mobile Devices (portrait) */
+@media (min-width: 480px) and (max-width: 767px) {
+    #content {
+        padding: 20px;
+        height: calc(100vh - 50px);
+    }
+    
+    .quote h1 {
+        font-size: 2rem;
+        line-height: 118%;
+        max-width: 100%;
+    }
+    
+    .details {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    
+    .instruction {
+        align-self: flex-end;
+        font-size: 0.8rem;
+    }
+    
+    main::before {
+        width: 130vh;
+        height: 90vh;
+        bottom: -45vh;
+    }
+    
+    #license {
+        font-size: 0.65rem;
+        padding: 8px 15px;
+        transform: translateY(0); /* Always show on mobile */
+        position: relative;
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+    
+    #license p:last-child {
+        display: none;
+    }
+}
+
+/* Tablets (portrait) */
 @media (min-width: 768px) and (max-width: 1023px) {
+    #content {
+        padding: 25px;
+    }
+    
+    .quote h1 {
+        font-size: 2.8rem;
+        max-width: 95%;
+    }
+    
+    .details {
+        margin-top: 20px;
+    }
+    
+    .authorbook {
+        font-size: 1.1rem;
+    }
+    
+    .instruction {
+        font-size: 0.85rem;
+    }
+    
+    main::before {
+        width: 140vh;
+        height: 110vh;
+    }
+    
+    #license {
+        font-size: 0.7rem;
+        padding: 10px 25px;
+    }
+}
+
+/* Small Laptops */
+@media (min-width: 1024px) and (max-width: 1365px) {
+    .quote h1 {
+        font-size: 3.2rem;
+        max-width: 90%;
+    }
+    
+    #content {
+        padding: 30px;
+    }
+    
+    main::before {
+        width: 145vh;
+        height: 120vh;
+    }
+}
+
+/* Mobile Landscape Orientation */
+@media (max-height: 500px) and (orientation: landscape) {
+    #content {
+        padding: 10px 20px;
+        height: calc(100vh - 40px);
+        justify-content: center;
+    }
+    
+    .quote {
+        margin-bottom: 10px;
+    }
+    
+    .quote h1 {
+        font-size: 1.6rem;
+        line-height: 110%;
+    }
+    
+    .details {
+        margin-top: 10px;
+    }
+    
+    .authorbook {
+        font-size: 0.85rem;
+    }
+    
+    .instruction {
+        font-size: 0.7rem;
+    }
+    
+    main::before {
+        width: 150vh;
+        height: 60vh;
+        bottom: -30vh;
+    }
+    
+    #license {
+        padding: 5px 15px;
+        font-size: 0.6rem;
+        transform: translateY(0);
+        position: relative;
+    }
+    
+    #license p:last-child {
+        display: none;
+    }
+}
+
+/* Tablet Landscape */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
     .quote h1 {
         font-size: 2.5rem;
+        max-width: 85%;
     }
-  }
+    
+    #content {
+        padding: 20px 40px;
+    }
+    
+    main::before {
+        width: 160vh;
+        height: 100vh;
+        bottom: -50vh;
+    }
+}
+
+/* Ultra-wide screens */
+@media (min-width: 1920px) {
+    #content {
+        max-width: 1600px;
+        margin: 0 auto;
+        padding: 40px;
+    }
+    
+    .quote h1 {
+        font-size: 4rem;
+        max-width: 85%;
+    }
+    
+    .authorbook {
+        font-size: 1.2rem;
+    }
+    
+    .instruction {
+        font-size: 0.9rem;
+    }
+}
+
+/* High DPI / Retina Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    main::before {
+        filter: blur(100px);
+    }
+}
+
+/* Accessibility - Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    main::before {
+        transition: none;
+    }
+    
+    #license {
+        transition: none;
+    }
+}
