@@ -27,6 +27,14 @@ body {
     /* Ensure content doesn't overflow */
     overflow-wrap: break-word;
     word-break: break-word;
+    /* Make it clear that content is interactive on touch devices */
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+/* Add visual feedback for touch interactions */
+#content:active {
+    opacity: 0.8;
 }
 
 main {

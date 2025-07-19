@@ -47,6 +47,23 @@ function updateContent(quote) {
     linkElement.href = quote.link || "#";
 
     splitWords(quoteElement);
+    updateInstructionText();
+}
+
+// Update instruction text based on device type
+function updateInstructionText() {
+    const instructionElement = document.getElementById('instruction-text');
+    
+    // Check if device supports touch
+    const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+    
+    if (isTouchDevice) {
+        // Mobile/tablet instructions
+        instructionElement.innerHTML = '<span>Tap</span> or <span>swipe</span> to move onto the next';
+    } else {
+        // Desktop instructions
+        instructionElement.innerHTML = 'Press <span>spacebar</span> to move onto the next';
+    }
 }
 
 // Split words for animation
@@ -103,9 +120,55 @@ async function init() {
     if (quotes.length === 0) return console.error("No quotes loaded");
 
     updateContent(quotes[0]);
+    
+    // Desktop spacebar navigation
     document.addEventListener("keydown", (event) => {
-        if (event.code === "Space") handleContentChange();
+        if (event.code === "Space") {
+            event.preventDefault(); // Prevent page scroll
+            handleContentChange();
+        }
     });
+    
+    // Mobile touch navigation - click anywhere on the main content
+    const contentArea = document.getElementById('content');
+    contentArea.addEventListener('click', (event) => {
+        // Don't trigger if clicking on links
+        if (event.target.tagName !== 'A') {
+            handleContentChange();
+        }
+    });
+    
+    // Touch swipe gestures for mobile
+    let touchStartX = 0;
+    let touchStartY = 0;
+    
+    contentArea.addEventListener('touchstart', (event) => {
+        touchStartX = event.touches[0].clientX;
+        touchStartY = event.touches[0].clientY;
+    }, { passive: true });
+    
+    contentArea.addEventListener('touchend', (event) => {
+        if (!touchStartX || !touchStartY) return;
+        
+        const touchEndX = event.changedTouches[0].clientX;
+        const touchEndY = event.changedTouches[0].clientY;
+        
+        const deltaX = touchStartX - touchEndX;
+        const deltaY = touchStartY - touchEndY;
+        
+        // Check if it's a swipe (minimum distance and not too much vertical movement)
+        if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+            // Swipe left or right to change quote
+            handleContentChange();
+        } else if (Math.abs(deltaY) > Math.abs(deltaX) && Math.abs(deltaY) > 50) {
+            // Swipe up or down to change quote
+            handleContentChange();
+        }
+        
+        // Reset values
+        touchStartX = 0;
+        touchStartY = 0;
+    }, { passive: true });
 }
 
 window.addEventListener("load", init);
