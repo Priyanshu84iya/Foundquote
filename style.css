@@ -151,6 +151,13 @@ a {
     /* Make content area more obviously interactive */
     #content {
         cursor: default;
+        /* Prevent text selection on tap */
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        /* Prevent highlight on tap */
+        -webkit-tap-highlight-color: transparent;
     }
     
     #content::after {
