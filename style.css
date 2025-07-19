@@ -148,6 +148,28 @@ a {
         font-size: 0.85rem;
     }
     
+    /* Make content area more obviously interactive */
+    #content {
+        cursor: default;
+    }
+    
+    #content::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+        opacity: 0;
+        background: rgba(255, 255, 255, 0.1);
+        transition: opacity 0.2s ease;
+    }
+    
+    #content:active::after {
+        opacity: 1;
+    }
+    
     /* Always show footer on touch devices */
     #license {
         transform: translateY(0) !important;
