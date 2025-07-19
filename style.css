@@ -16,14 +16,14 @@ body {
 
 #content {
     display: flex;
-    height: calc(100vh - 60px); /* Increased space to prevent footer overlap */
+    height: calc(100vh - 80px); /* Increased space to prevent footer overlap on desktop */
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
     padding: 20px;
     z-index: 3;
     flex-shrink: 0;
-    margin-bottom: 40px; /* Increased margin to ensure instruction text is visible */
+    margin-bottom: 60px; /* Increased margin to ensure instruction text is always visible */
     /* Ensure content doesn't overflow */
     overflow-wrap: break-word;
     word-break: break-word;
@@ -83,7 +83,7 @@ main.fade-out::before {
     width: 100%;
     justify-content: space-between;
     align-items: flex-end;
-    padding-bottom: 20px; /* Add padding to ensure spacing from footer */
+    padding-bottom: 30px; /* Increased padding to ensure better spacing from footer */
 }
 
 .quote h1 {
